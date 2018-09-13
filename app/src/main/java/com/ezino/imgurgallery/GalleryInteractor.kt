@@ -10,7 +10,7 @@ class GalleryInteractor(private val repo: ImgurRepository) {
      */
     fun imageStream(section: String, showViral: Boolean): Observable<Image> {
         return repo.getGalleries(section, showViral)
-                .flatMap { galleries -> Observable.fromIterable(galleries) }
+                .flatMapObservable { galleries -> Observable.fromIterable(galleries) }
                 .filter { it.images != null }
                 .flatMap { gallery -> Observable.fromIterable(gallery.images) }
     }
