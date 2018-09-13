@@ -7,7 +7,7 @@ import io.reactivex.Observable
 class ImgurRepositoryImpl : ImgurRepository {
     private val imgurApiService by lazy { ImgurApiService.newInstance() }
 
-    override fun getGalleries(): Observable<List<Gallery>> {
-        return imgurApiService.getGalleries().map { response -> response.data  }
+    override fun getGalleries(section: String, showViral: Boolean): Observable<List<Gallery>> {
+        return imgurApiService.getGalleries(section, showViral).map { response -> response.data }
     }
 }

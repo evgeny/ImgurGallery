@@ -5,5 +5,5 @@ import io.reactivex.Observable
 
 
 interface ImgurRepository {
-    fun getGalleries(): Observable<List<Gallery>>
+    fun getGalleries(section: String, showViral: Boolean): Observable<List<Gallery>>
 }

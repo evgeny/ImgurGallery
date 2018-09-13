@@ -21,9 +21,10 @@ class GalleryActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         val adapter = GalleryAdapter(ImageDiffCallback())
+//        image_grid_view.setHasFixedSize(true)
         image_grid_view.adapter = adapter
         val interactor = GalleryInteractor(ImgurRepositoryImpl())
-        interactor.getImageLink().toList()
+        interactor.imageStream("hot", true).toList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
