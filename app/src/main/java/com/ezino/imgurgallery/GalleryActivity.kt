@@ -1,11 +1,17 @@
 package com.ezino.imgurgallery
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import com.ezino.imgurgallery.adapters.GalleryAdapter
+import com.ezino.imgurgallery.adapters.ImageDiffCallback
+import com.ezino.imgurgallery.network.ImgurRepositoryImpl
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_gallery.*
+import kotlinx.android.synthetic.main.content_gallery.*
 
 class GalleryActivity : AppCompatActivity() {
 
@@ -13,6 +19,17 @@ class GalleryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gallery)
         setSupportActionBar(toolbar)
+
+        val adapter = GalleryAdapter(ImageDiffCallback())
+        image_grid_view.adapter = adapter
+        val interactor = GalleryInteractor(ImgurRepositoryImpl())
+        interactor.getImageLink().toList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    Log.d("MainActivity", it.toString())
+                    adapter.submitList(it)
+                }, { Log.e("MainActivity", it.toString(), it) })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
