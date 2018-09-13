@@ -6,11 +6,13 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Headers
 import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ImgurApiService {
 
+    @Headers("Authorization: Client-ID 2261330534b7371")
     @GET("/3/gallery/{section}/0.json")
     fun getGalleries(@Path("section") section: String, @Query("showViral") showViral: Boolean): Maybe<ImgurResponse>
 
