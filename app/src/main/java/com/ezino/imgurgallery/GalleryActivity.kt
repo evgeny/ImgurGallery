@@ -11,7 +11,6 @@ import com.ezino.imgurgallery.network.ImgurRepositoryImpl
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_gallery.*
-import kotlinx.android.synthetic.main.content_gallery.*
 
 class GalleryActivity : AppCompatActivity() {
 
@@ -22,7 +21,8 @@ class GalleryActivity : AppCompatActivity() {
 
         val adapter = GalleryAdapter(ImageDiffCallback())
 //        image_grid_view.setHasFixedSize(true)
-        image_grid_view.adapter = adapter
+        list_view.adapter = adapter
+        list_view.setHasFixedSize(true)
         val interactor = GalleryInteractor(ImgurRepositoryImpl())
         interactor.imageStream("hot", true).toList()
                 .subscribeOn(Schedulers.io())
