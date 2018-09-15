@@ -1,5 +1,8 @@
 package com.ezino.imgurgallery
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProvider
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -8,6 +11,7 @@ import android.view.MenuItem
 import com.ezino.imgurgallery.adapters.GalleryAdapter
 import com.ezino.imgurgallery.adapters.ImageDiffCallback
 import com.ezino.imgurgallery.network.ImgurRepositoryImpl
+import com.ezino.imgurgallery.viewmodles.ImageListViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_gallery.*
@@ -22,14 +26,18 @@ class GalleryActivity : AppCompatActivity() {
         val adapter = GalleryAdapter(ImageDiffCallback())
         list_view.adapter = adapter
         list_view.setHasFixedSize(true)
-        val interactor = GalleryInteractor(ImgurRepositoryImpl())
-        interactor.imageStream("hot", true).toList()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    Log.d("MainActivity", it.toString())
-                    adapter.submitList(it)
-                }, { Log.e("MainActivity", it.toString(), it) })
+//        val interactor = GalleryInteractor(ImgurRepositoryImpl())
+//        interactor.imageStream("hot", true).toList()
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe({
+//                    Log.d("MainActivity", it.toString())
+//                    adapter.submitList(it)
+//                }, { Log.e("MainActivity", it.toString(), it) })
+
+        val model = ViewModelProviders.of(this).get(ImageListViewModel::class.java)
+        model.getImages().observe(this, Observer { images -> adapter.submitList(images) })
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
