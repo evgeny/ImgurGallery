@@ -9,10 +9,10 @@ import com.ezino.imgurgallery.network.ImgurRepositoryImpl
 
 class ImageListViewModel: ViewModel() {
     // todo replace by di
-    val galleryInteractor = GalleryInteractor(ImgurRepositoryImpl())
+    private val galleryInteractor = GalleryInteractor(ImgurRepositoryImpl())
 
     fun getImages(): LiveData<List<Image>> {
-        galleryInteractor.imageStream("hot", true)
-        return LiveDataReactiveStreams.fromPublisher(galleryInteractor.imageList("hot", true))
+        return LiveDataReactiveStreams
+                .fromPublisher(galleryInteractor.imageList("hot", true))
     }
 }
