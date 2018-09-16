@@ -3,8 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.ezino.imgurgallery.GalleryActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/action_section"
+        android:icon="@drawable/ic_sort_white"
+        android:title="@string/action_section"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_viral"
+        android:icon="@drawable/ic_flag_white"
+        android:title="@string/action_viral"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_about"
+        android:icon="@drawable/ic_info_outline_white"
+        android:title="@string/action_about"
+        app:showAsAction="ifRoom" />
 </menu>

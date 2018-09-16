@@ -14,7 +14,8 @@ import com.ezino.imgurgallery.GlideApp
 import com.ezino.imgurgallery.R
 import com.ezino.imgurgallery.model.Image
 
-class GalleryAdapter(diffCallback: DiffUtil.ItemCallback<Image>, val context: Context) : ListAdapter<Image, GalleryAdapter.ViewHolder>(diffCallback) {
+class GalleryAdapter(diffCallback: DiffUtil.ItemCallback<Image>, private val context: Context)
+    : ListAdapter<Image, GalleryAdapter.ViewHolder>(diffCallback) {
 
     /**
      * number of columns in grid layout

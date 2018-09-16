@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ezino.imgurgallery.GalleryActivity">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/hot"
+            android:checked="true"
+            android:title="hot" />
+        <item
+            android:id="@+id/top"
+            android:title="top" />
+        <item
+            android:id="@+id/user"
+            android:title="user" />
+    </group>
+</menu>
