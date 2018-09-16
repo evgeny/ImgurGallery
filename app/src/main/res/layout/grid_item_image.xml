@@ -26,6 +26,7 @@
             android:lines="2"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
+            android:textColor="@color/colorPrimaryDark"
             tools:text="blb bla" />
 
     </RelativeLayout>
