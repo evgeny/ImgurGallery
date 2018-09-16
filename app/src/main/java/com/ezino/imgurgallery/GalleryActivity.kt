@@ -23,7 +23,7 @@ class GalleryActivity : AppCompatActivity() {
         setContentView(R.layout.activity_gallery)
         setSupportActionBar(toolbar)
 
-        val adapter = GalleryAdapter(ImageDiffCallback())
+        val adapter = GalleryAdapter(ImageDiffCallback(), applicationContext)
         list_view.adapter = adapter
         list_view.setHasFixedSize(true)
 //        val interactor = GalleryInteractor(ImgurRepositoryImpl())
