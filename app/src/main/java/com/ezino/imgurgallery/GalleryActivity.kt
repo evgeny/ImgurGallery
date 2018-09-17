@@ -10,12 +10,18 @@ import android.view.Menu
 import android.view.MenuItem
 import com.ezino.imgurgallery.adapters.GalleryAdapter
 import com.ezino.imgurgallery.adapters.ImageDiffCallback
-import com.ezino.imgurgallery.viewmodles.ImageListViewModel
+import com.ezino.imgurgallery.model.Section
+import com.ezino.imgurgallery.utils.mapToItemId
+import com.ezino.imgurgallery.viewmodels.ImageListViewModel
 import kotlinx.android.synthetic.main.activity_gallery.*
 
 
 class GalleryActivity : AppCompatActivity(), PopupMenu.OnMenuItemClickListener {
+    /**
+     * viewmodel for this view e.g. activity
+     */
     private lateinit var viewModel: ImageListViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gallery)
@@ -45,32 +51,44 @@ class GalleryActivity : AppCompatActivity(), PopupMenu.OnMenuItemClickListener {
                 showSectionPopup()
                 return true
             }
+            R.id.action_viral -> {
+                // TODO
+                return true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
+    /**
+     * click callback for section popup menu
+     */
     override fun onMenuItemClick(item: MenuItem?): Boolean {
-        // TODO
         return when (item?.itemId) {
             R.id.hot -> {
-                Log.d("TAG", "show about fragment")
+                viewModel.selectedSection = Section.HOT
                 return true
             }
             R.id.top -> {
+                viewModel.selectedSection = Section.TOP
                 return true
             }
             R.id.user -> {
+                viewModel.selectedSection = Section.USER
                 return true
             }
             else -> true
         }
     }
 
+    /**
+     * show section popup menu
+     */
     private fun showSectionPopup() {
         val popup = PopupMenu(this, findViewById(R.id.action_section))
         val inflater = popup.menuInflater
         inflater.inflate(R.menu.menu_section, popup.menu)
         popup.setOnMenuItemClickListener(this)
+        popup.menu.findItem(mapToItemId(viewModel.selectedSection)).isChecked = true
         popup.show()
     }
 }

@@ -10,9 +10,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.ezino.imgurgallery.GlideApp
 import com.ezino.imgurgallery.R
 import com.ezino.imgurgallery.model.Image
+import com.ezino.imgurgallery.utils.GlideApp
 
 class GalleryAdapter(diffCallback: DiffUtil.ItemCallback<Image>, private val context: Context)
     : ListAdapter<Image, GalleryAdapter.ViewHolder>(diffCallback) {
