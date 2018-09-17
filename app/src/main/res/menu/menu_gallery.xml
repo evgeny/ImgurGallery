@@ -9,7 +9,7 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_viral"
-        android:icon="@drawable/ic_flag_white"
+        android:icon="@drawable/ic_visibility_white"
         android:title="@string/action_viral"
         app:showAsAction="ifRoom" />
     <item

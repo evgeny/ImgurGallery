@@ -38,7 +38,7 @@ class GalleryAdapter(diffCallback: DiffUtil.ItemCallback<Image>, private val con
         GlideApp.with(context)
                 .load(item.link)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .override(gridLayoutColumnWidth)
+                .override(gridLayoutColumnWidth, context.resources.getDimension(R.dimen.card_height).toInt())
                 .into(viewHolder.imageView)
     }
 
