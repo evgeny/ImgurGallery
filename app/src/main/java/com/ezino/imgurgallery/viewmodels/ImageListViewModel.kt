@@ -25,20 +25,29 @@ class ImageListViewModel : ViewModel() {
      */
     var selectedSection: Section = Section.HOT
         set(value) {
-            loadImages(value)
+            loadImages(value, showViral)
+            field = value
+        }
+
+    /**
+     * param used for network request
+     */
+    var showViral: Boolean = true
+        set(value) {
+            loadImages(selectedSection, value)
             field = value
         }
 
     fun getImages(): LiveData<List<Image>> {
         if (imageList.value == null) {
-            loadImages(selectedSection)
+            loadImages(selectedSection, showViral)
         }
 
         return imageList
     }
 
-    private fun loadImages(section: Section) {
-        val disposable = galleryInteractor.imageStream(section, true)
+    private fun loadImages(section: Section, showViral: Boolean) {
+        val disposable = galleryInteractor.imageStream(section, showViral)
                 .toList().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         { list -> imageList.setValue(list) },

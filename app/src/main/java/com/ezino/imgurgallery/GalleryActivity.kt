@@ -37,6 +37,9 @@ class GalleryActivity : AppCompatActivity(), PopupMenu.OnMenuItemClickListener {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_gallery, menu)
+        val actionViral = menu.findItem(R.id.action_viral)
+        val icon = if (viewModel.showViral) R.drawable.ic_flag_white else R.drawable.ic_info_outline_white
+        actionViral?.setIcon(icon)
         return true
     }
 
@@ -52,7 +55,8 @@ class GalleryActivity : AppCompatActivity(), PopupMenu.OnMenuItemClickListener {
                 return true
             }
             R.id.action_viral -> {
-                // TODO
+                viewModel.showViral = !viewModel.showViral
+                invalidateOptionsMenu()
                 return true
             }
             else -> super.onOptionsItemSelected(item)
