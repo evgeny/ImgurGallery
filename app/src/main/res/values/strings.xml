@@ -4,7 +4,4 @@
     <string name="action_section">Section</string>
     <string name="action_viral">Show/Hide Viral</string>
     <string name="action_about">About</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
