@@ -46,8 +46,7 @@ class GalleryActivity : AppCompatActivity(), PopupMenu.OnMenuItemClickListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_about -> {
-                // TODO
-                Log.d("TAG", "show about fragment")
+                AboutFragment().show(supportFragmentManager, "about dialog")
                 return true
             }
             R.id.action_section -> {

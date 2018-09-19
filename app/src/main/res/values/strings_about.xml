@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_dialog_title">About</string>
+    <string name="about_dialog_positive_button">OK</string>
+    <string name="about_dialog_app_name"><b>Imgur Gallery</b></string>
+    <string name="about_dialog_app_developer"><b>Developer:</b> Evgeny Zinovyev</string>
+    <string name="about_dialog_app_version"><b>Version:</b> %1$s</string>
+    <string name="about_dialog_time_spent"><b>Time spent on development:</b> one week</string>
+</resources>
