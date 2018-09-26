@@ -10,9 +10,6 @@ import androidx.appcompat.app.AppCompatDialogFragment
 class AboutFragment : AppCompatDialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-//        val layoutView = layoutInflater.inflate(R.layout.fragment_about, null)
-//        val versionView: TextView = layoutView.findViewById(R.id.app_version)
-//        versionView.text = getString(R.string.about_dialog_app_version, BuildConfig.VERSION_NAME)
 
         val dialogBuilder = AlertDialog.Builder(activity)
         dialogBuilder.apply {
@@ -23,5 +20,12 @@ class AboutFragment : AppCompatDialogFragment() {
         }
 
         return dialogBuilder.create()
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        val versionView = dialog.findViewById(R.id.app_version) as TextView
+        versionView.text = getString(R.string.about_dialog_app_version, BuildConfig.VERSION_NAME)
     }
 }
