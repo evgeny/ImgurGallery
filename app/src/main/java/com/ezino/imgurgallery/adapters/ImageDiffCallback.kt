@@ -1,6 +1,6 @@
 package com.ezino.imgurgallery.adapters
 
-import android.support.v7.util.DiffUtil
+import androidx.recyclerview.widget.DiffUtil
 import com.ezino.imgurgallery.model.Image
 
 class ImageDiffCallback: DiffUtil.ItemCallback<Image>() {

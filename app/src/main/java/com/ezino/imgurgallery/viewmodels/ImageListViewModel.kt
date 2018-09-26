@@ -1,9 +1,9 @@
 package com.ezino.imgurgallery.viewmodels
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.ezino.imgurgallery.model.Image
 import com.ezino.imgurgallery.model.Section
 import com.ezino.imgurgallery.network.ImgurRepositoryImpl

@@ -1,13 +1,12 @@
 package com.ezino.imgurgallery
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.PopupMenu
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.PopupMenu
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.ezino.imgurgallery.adapters.GalleryAdapter
 import com.ezino.imgurgallery.adapters.ImageDiffCallback
 import com.ezino.imgurgallery.model.Section
