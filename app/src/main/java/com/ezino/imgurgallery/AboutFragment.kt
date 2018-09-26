@@ -4,6 +4,7 @@ package com.ezino.imgurgallery
 import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatDialogFragment
 
 
